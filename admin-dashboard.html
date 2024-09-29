@@ -1,39 +1,218 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Pengawas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .left-icons i, .header .right-icons i {
+            margin: 0 5px;
+        }
+        .header .left-icons {
+            display: flex;
+            align-items: center;
+        }
+        .header .right-icons {
+            display: flex;
+            align-items: center;
+        }
+        .header .time {
+            font-size: 18px;
+        }
+        .header .status-icons {
+            display: flex;
+            align-items: center;
+        }
+        .header .status-icons i {
+            margin: 0 2px;
+        }
+        .header .status-icons .signal, .header .status-icons .wifi, .header .status-icons .battery {
+            font-size: 18px;
+        }
+        .header .status-icons .battery {
+            margin-right: 10px;
+        }
+        .search-bar {
+            background-color: #444;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #4CAF50;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: #45a049;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .container h1 {
+            color: #4CAF50;
+        }
+        .profile, .student-list, .block-student {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile h2, .student-list h2, .block-student h2 {
+            color: #4CAF50;
+            border-bottom: 1px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .profile p {
+            margin: 10px 0;
+        }
+        .student-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .student-list ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .student-list ul li button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .student-list ul li button.unblock {
+            background-color: #4CAF50;
+        }
+        .block-student button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Dashboard Pengawas</h1>
-    <div>
-        <h2>Profil Pengawas</h2>
-        <p>Nama: Pengawas 1</p>
-        <p>Email: pengawas1@example.com</p>
-
-        <h2>Absensi Siswa</h2>
-        <ul id="absensiSiswa">
-            <!-- Daftar siswa akan ditampilkan di sini -->
-        </ul>
-
-        <h2>Blokir Ujian Siswa</h2>
-        <button onclick="blockExam()">Blokir Ujian Siswa</button>
+    <div class="header">
+        <div class="left-icons">
+            <i class="fas fa-code"></i>
+            <div class="time">09.17</div>
+        </div>
+        <div class="right-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-tiktok"></i>
+            <div class="status-icons">
+                <i class="fas fa-signal signal"></i>
+                <i class="fas fa-wifi wifi"></i>
+                <i class="fas fa-battery-full battery"></i>
+                <div>4G</div>
+            </div>
+        </div>
     </div>
-
-    <script src="app.js"></script>
+    <div class="search-bar">
+        <input type="text" placeholder="Dashboard Pengawas" disabled>
+    </div>
+    <div class="navbar">
+        <a href="#profile">Profil</a>
+        <a href="#students">Absensi Siswa</a>
+        <a href="#block">Blokir Siswa</a>
+    </div>
+    <div class="container">
+        <h1>Dashboard Pengawas</h1>
+        <div id="profile" class="profile">
+            <h2>Profil Pengawas</h2>
+            <p>Nama: Pengawas 1</p>
+            <p>Email: pengawas1@example.com</p>
+            <p>Kelas: 12 IPA 1</p>
+        </div>
+        <div id="students" class="student-list">
+            <h2>Absensi Siswa</h2>
+            <ul>
+                <li>egasaputra <button class="block">Blokir</button></li>
+                <li>siswa02 <button class="block">Blokir</button></li>
+                <li>siswa03 <button class="block">Blokir</button></li>
+                <li>siswa04 <button class="block">Blokir</button></li>
+                <li>siswa05 <button class="block">Blokir</button></li>
+                <li>siswa06 <button class="block">Blokir</button></li>
+                <li>siswa07 <button class="block">Blokir</button></li>
+                <li>siswa08 <button class="block">Blokir</button></li>
+                <li>siswa09 <button class="block">Blokir</button></li>
+                <li>siswa10 <button class="block">Blokir</button></li>
+                <li>siswa11 <button class="block">Blokir</button></li>
+                <li>siswa12 <button class="block">Blokir</button></li>
+                <li>siswa13 <button class="block">Blokir</button></li>
+                <li>siswa14 <button class="block">Blokir</button></li>
+                <li>siswa15 <button class="block">Blokir</button></li>
+                <li>siswa16 <button class="block">Blokir</button></li>
+                <li>siswa17 <button class="block">Blokir</button></li>
+                <li>siswa18 <button class="block">Blokir</button></li>
+                <li>siswa19 <button class="block">Blokir</button></li>
+                <li>siswa20 <button class="block">Blokir</button></li>
+                <li>siswa21 <button class="block">Blokir</button></li>
+                <li>siswa22 <button class="block">Blokir</button></li>
+                <li>siswa23 <button class="block">Blokir</button></li>
+                <li>siswa24 <button class="block">Blokir</button></li>
+                <li>siswa25 <button class="block">Blokir</button></li>
+                <li>siswa26 <button class="block">Blokir</button></li>
+                <li>siswa27 <button class="block">Blokir</button></li>
+                <li>siswa28 <button class="block">Blokir</button></li>
+                <li>siswa29 <button class="block">Blokir</button></li>
+                <li>siswa30 <button class="block">Blokir</button></li>
+            </ul>
+        </div>
+        <div id="block" class="block-student">
+            <h2>Blokir Ujian Siswa</h2>
+            <button>Blokir Ujian Siswa</button>
+        </div>
+    </div>
     <script>
-        function blockExam() {
-            alert("Semua Ujian Siswa Telah Diblokir");
-        }
-
-        // Daftar absensi siswa
-        const absensiSiswa = document.getElementById('absensiSiswa');
-        studentData.forEach(student => {
-            const li = document.createElement('li');
-            li.textContent = `${student.username}`;
-            absensiSiswa.appendChild(li);
+        document.querySelectorAll('.block').forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.classList.contains('block')) {
+                    button.classList.remove('block');
+                    button.classList.add('unblock');
+                    button.textContent = 'Buka Blokir';
+                } else {
+                    button.classList.remove('unblock');
+                    button.classList.add('block');
+                    button.textContent = 'Blokir';
+                }
+            });
         });
     </script>
 </body>
